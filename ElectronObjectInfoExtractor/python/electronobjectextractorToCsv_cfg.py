@@ -8,7 +8,7 @@ Created on Tue Jul 24 10:37:46 2018
 
 import FWCore.ParameterSet.Config as cms
 
-process = cms.Process("electronext")
+process = cms.Process("electronexttocsv")
 
 process.load("FWCore.MessageService.MessageLogger_cfi")
 
@@ -21,7 +21,7 @@ process.source = cms.Source("PoolSource",
                                     )
                             )
 
-process.electronextractorToCsv = cms.EDAnalyzer('ElectronInfoExtractorToCsv',
+process.electronextractorToCsv = cms.EDAnalyzer('ElectronObjectInfoExtractorToCsv',
                                                 InputCollection = cms.InputTag("electrons"),
                                                 maxNumberElectrons = cms.untracked.int32(10)
                                                 )
