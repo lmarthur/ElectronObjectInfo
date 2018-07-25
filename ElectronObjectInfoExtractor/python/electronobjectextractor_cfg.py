@@ -21,7 +21,7 @@ process.source = cms.Source("poolsource",
                                     )
                             )
 
-process.demo = cms.EDAnalyzer('ElectronObjectInfoExtractor',
+process.electronextractor = cms.EDAnalyzer('ElectronObjectInfoExtractor',
                               InputCollection = cms.InputTag("electrons")
                               )
 
