@@ -70,7 +70,7 @@ class ElectronObjectInfoExtractorToCsv : public edm::EDAnalyzer {
   //and declare variable that will go into the root tree
   int runno; //run number
   int evtno; //event number
-  int nmu;//number of electrons in the event
+  int nelectron;//number of electrons in the event
   std::string electron_partype; //type of particle
   std::vector<float> electron_e;
   std::vector<float> electron_pt;
@@ -159,7 +159,7 @@ ElectronObjectInfoExtractorToCsv::analyze(const edm::Event& iEvent, const edm::E
 
 // ------------ function to analyze electrons
 void 
-ElectronObjectInfoExtractorToCsv::analyzeElectron(const edm::Event& iEvent, const edm::Handle<reco::ElectronCollection> &electrons)
+ElectronObjectInfoExtractorToCsv::analyzeElectrons(const edm::Event& iEvent, const edm::Handle<reco::ElectronCollection> &electrons)
 {
   //clear the storage containers for this objects in this event
   nelectron=0;
@@ -193,7 +193,7 @@ ElectronObjectInfoExtractorToCsv::analyzeElectron(const edm::Event& iEvent, cons
 	    ++idx;
 	  }
 	}
-	nmu = idx;
+	nelectron = idx;
   }
   
 }
@@ -202,7 +202,7 @@ ElectronObjectInfoExtractorToCsv::analyzeElectron(const edm::Event& iEvent, cons
 void ElectronObjectInfoExtractorToCsv::dumpElectronsToCsv()
 {
   unsigned int maxnumobjt = maxNumObjt;
-  if(nmu>0){
+  if(nelectron>0){
   oss.str("");oss.clear();oss<<runno;
   myfile<<oss.str();
   oss.str("");oss.clear();oss<<evtno;
