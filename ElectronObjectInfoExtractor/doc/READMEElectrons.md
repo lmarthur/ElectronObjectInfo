@@ -45,6 +45,8 @@ Then follow these steps:
 ln -s python/electronobjectextractor_cfg.py .
 ```
 
+- Replace 'file:myfile.root' with name of the file to be analyzed
+
 - Run the CMSSW executable in the background
 
 ```
