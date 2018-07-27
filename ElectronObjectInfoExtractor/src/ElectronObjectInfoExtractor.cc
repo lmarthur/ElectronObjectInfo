@@ -11,8 +11,8 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 //classes included to extract electron information
-#include "DataFormats/ElectronReco/interface/Electron.h"
-#include "DataFormats/ElectronReco/interface/ElectronFwd.h" 
+#include "DataFormats/EgammaReco/interface/Electron.h"
+#include "DataFormats/EgammaReco/interface/ElectronFwd.h"
 
 //classes included to extract tracking for the electrons
 #include "DataFormats/TrackReco/interface/Track.h"
