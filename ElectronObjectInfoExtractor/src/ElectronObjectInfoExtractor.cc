@@ -159,7 +159,7 @@ ElectronObjectInfoExtractor::analyzeElectrons(const edm::Event& iEvent)
   electron_pz.clear();
   electron_eta.clear();
   electron_phi.clear();
-  electron_ch.clear()
+  electron_ch.clear();
 
   edm::Handle<reco::ElectronCollection> myelectrons;
 
@@ -184,22 +184,10 @@ ElectronObjectInfoExtractor::analyzeElectrons(const edm::Event& iEvent)
   //check if the collection is valid
   if(myelectrons.isValid()){
       //get the number of electrons in the event
-      nelectrons=(*myelectrons).size();
+      nelectron=(*myelectrons).size();
 	//loop over all the electrons in this event
 	for (reco::ElectronCollection::const_iterator recoElectron = myelectrons->begin(); recoElectron!=myelectrons->end(); ++recoElectron){
-      //find only globlal electrons for this specific example
-      //https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookElectronAnalysis?rev=88
-	  //Note that this would be already a selection cut, i.e.
-	  //requiring it to be global is a constrain on what kind of electron it is
-      if(recoElectron->isGlobalElectron()) {
-	  electron_e.push_back(recoElectron->energy());
-	  electron_pt.push_back(recoElectron->pt());
-	  electron_px.push_back(recoElectron->px());
-	  electron_py.push_back(recoElectron->py());
-	  electron_pz.push_back(recoElectron->pz());
-	  electron_eta.push_back(recoElectron->eta());
-	  electron_phi.push_back(recoElectron->phi());
-	  electron_ch.push_back(recoElectron->ch());
+
 
 	  // get the track combinig the information from both the Tracker and the Spectrometer
 	  reco::TrackRef recoCombinedGlbTrack = recoElectron->combinedElectron();
